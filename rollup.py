@@ -246,7 +246,7 @@ for dataset in sorted(snapshots.keys()):
                     print(snapshots[dataset][snapshot]['keep'][0], end=' ')
                 else:
                     print('-', end=' ')
-                print(sizeof_fmt(snapshots[dataset][snapshot]['used']))
+                print(sizeof_fmt(float(snapshots[dataset][snapshot]['used'])))
             else:
                 print()
 
