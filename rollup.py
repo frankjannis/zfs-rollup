@@ -26,6 +26,13 @@ import argparse
 import sys
 from collections import defaultdict
 
+def sizeof_fmt(num, suffix="B"):
+    for unit in ["", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi"]:
+        if abs(num) < 1024.0:
+            return f"{num:3.1f}{unit}{suffix}"
+        num /= 1024.0
+    return f"{num:.1f}Yi{suffix}"
+
 intervals = {}
 intervals['hourly']  = { 'max':24, 'abbreviation':'h', 'reference':'%Y-%m-%d %H' }
 intervals['daily']   = { 'max': 7, 'abbreviation':'d', 'reference':'%Y-%m-%d' }
@@ -239,7 +246,7 @@ for dataset in sorted(snapshots.keys()):
                     print(snapshots[dataset][snapshot]['keep'][0], end=' ')
                 else:
                     print('-', end=' ')
-                print(snapshots[dataset][snapshot]['used'])
+                print(sizeof_fmt(snapshots[dataset][snapshot]['used']))
             else:
                 print()
 
