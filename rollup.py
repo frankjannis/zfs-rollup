@@ -51,11 +51,11 @@ modifiers = {
 }
 
 used_intervals = {
-    'hourly' : intervals['hourly'],
+#     'hourly' : intervals['hourly'],
     'daily'  : intervals['daily'],
 #     'weekly' : intervals['weekly'],
     'monthly': intervals['monthly'],
-    'yearly' : intervals['yearly'],
+#     'yearly' : intervals['yearly'],
 }
 
 parser = argparse.ArgumentParser(description='Prune excess snapshots, keeping hourly for the last day, daily for the last week, and weekly thereafter.')
